@@ -1,0 +1,176 @@
+button {
+  background-color: white;
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  position: fixed;
+  width: 0;
+}
+
+input[type="radio"]:checked+label {
+  background-color: yellow;
+
+}
+
+label {
+  background-color: white;
+  padding: 1px 6px;
+  border: 2px outset black;
+  font-family: sans-serif;
+  cursor: pointer;
+}
+
+dialog::backdrop {
+  background: rgb(0 0 0 / .4);
+}
+
+p {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+
+.Login-Button {
+  color: white;
+  background-color: #007fbf;
+}
+
+.Close-Button {
+  border: 0;
+  padding: 0;
+  font-weight: bold;
+  outline: none;
+  cursor: default;
+}
+
+.About-li {
+  margin-bottom: 10px
+}
+
+.About-Button {
+  margin-top: 6px;
+}
+
+.About-Button:hover {
+  color: white;
+  background-color: #007fbf;
+}
+
+.Login-Form {
+  width: 280px;
+  border: 3px solid;
+  display: grid;
+  grid-template-columns: 85px auto;
+  column-gap: 1px;
+  row-gap: 15px;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+.Label-Box {
+  width: 10px;
+  height: 10px;
+  margin: 3px 7px 3px 3px;
+  padding: 0px;
+  border: 1px solid black;
+  cursor: initial;
+}
+
+.Sub-Menu {
+  display: flex;
+  height: 55px;
+  align-items: center;
+  background-color: linen;
+}
+
+.All-Movies {
+  display: grid;
+  grid-template-columns: repeat(4, 347px);
+  grid-gap: 10px;
+  padding-top: 10px;
+  max-height: calc(100% - 130px);
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.Movie {
+  width: 340px;
+  border: 3px solid;
+}
+
+.Movie-Form {
+  width: 340px;
+  border: 4px solid;
+  display: grid;
+  grid-template-columns: 90px auto;
+  column-gap: 1px;
+  row-gap: 1px;
+  padding: 5px;
+}
+
+.All-Members {
+  max-height: calc(100% - 120px);
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.Member {
+  width: 340px;
+  border: 3px solid;
+  padding: 2px;
+  margin-top: 10px;
+}
+
+.Member-Form {
+  width: 340px;
+  border: 4px solid;
+  display: grid;
+  grid-template-columns: 55px auto;
+  column-gap: 1px;
+  row-gap: 1px;
+  padding: 5px;
+}
+
+.Movies-Watched {
+  width: 320px;
+  border: 3px solid;
+  padding: 2px;
+}
+
+.Sub-To-Movie {
+  width: 280px;
+  border: 3px solid red;
+  margin-top: 2px;
+  padding: 2px;
+}
+
+.All-Users {
+  max-height: calc(100% - 120px);
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.User-Form {
+  width: 340px;
+  border: 3px solid;
+  display: grid;
+  grid-template-columns: 130px auto;
+  column-gap: 1px;
+  row-gap: 1px;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.Header {
+  border-bottom: 2px solid;
+  height: 80px
+}
+
+
+.Footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 2px solid;
+  height: 30px;
+}
