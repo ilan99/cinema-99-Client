@@ -1,20 +1,36 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Typography } from "@mui/material";
 import { setClickAll } from "../redux/actions";
-import { addMovie } from "../utils/movies";
+import { getMovieById, updateMovie } from "../utils/movies";
 import "../style.css";
 
-function AddMovie() {
+function EditMovie() {
+  const { editMovieId: movieId, clickAll } = useSelector((state: any) => state);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { clickAll } = useSelector((state) => state);
   const [name, setName] = useState("");
+  const [titleName, setTitleName] = useState("");
   const [genres, setGenres] = useState("");
   const [image, setImage] = useState("");
   const [premiered, setPremiered] = useState("");
 
-  const handleChange = (e) => {
+  useEffect(() => {
+    async function getData() {
+      const { data: movie } = await getMovieById(movieId);
+      const { name, genres, image, premiered } = movie;
+      setName(name);
+      setTitleName(name);
+      setGenres(genres.join());
+      setImage(image);
+      setPremiered(premiered.split("T")[0]);
+    }
+
+    getData();
+  }, [movieId]);
+
+  const handleChange = (e: any) => {
     const { name, value } = e.target;
     switch (name) {
       case "name":
@@ -35,7 +51,7 @@ function AddMovie() {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     // Check input data
@@ -47,7 +63,7 @@ function AddMovie() {
     // Movies - DB
     const arrGenres = genres.split(",");
     const movie = { name, genres: arrGenres, image, premiered };
-    const { data } = await addMovie(movie);
+    const { data } = await updateMovie(movieId, movie);
     if (typeof data === "string") {
       alert(data);
     } else {
@@ -67,7 +83,15 @@ function AddMovie() {
 
   return (
     <div>
-      <h3>Add New Movie</h3>
+      <Typography
+        variant="h5"
+        fontWeight={"bold"}
+        fontSize={"1.1rem"}
+        mt="15px"
+        mb="15px"
+      >
+        Edit Movie : <span style={{ color: "blue" }}>{titleName}</span>
+      </Typography>
       <form onSubmit={handleSubmit} className="Movie-Form">
         Name :
         <input type="text" name="name" value={name} onChange={handleChange} />
@@ -90,7 +114,7 @@ function AddMovie() {
         />
         &nbsp;
         <div style={{ gridColumn: "span 2" }}>
-          <button type="submit">Save</button>{" "}
+          <button type="submit">Update</button>{" "}
           <button type="button" onClick={cancel}>
             Cancel
           </button>
@@ -100,4 +124,4 @@ function AddMovie() {
   );
 }
 
-export default AddMovie;
+export default EditMovie;

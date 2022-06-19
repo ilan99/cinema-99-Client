@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { getUserByName, updateUser } from "./utils/users";
 import { useNavigate } from "react-router-dom";
+import { Typography } from "@mui/material";
 import "./style.css";
 
 function CreateAccount() {
@@ -8,7 +9,7 @@ function CreateAccount() {
   const [password, setPassword] = useState();
   const navigate = useNavigate();
 
-  const changeData = (e) => {
+  const changeData = (e: any) => {
     const { name, value } = e.target;
     switch (name) {
       case "username":
@@ -22,7 +23,7 @@ function CreateAccount() {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     if (!(username && password)) {
@@ -60,7 +61,9 @@ function CreateAccount() {
       }}
     >
       <div style={{ marginTop: "15vh" }}>
-        <h2 style={{ margin: "0" }}>Create An Account</h2>
+        <Typography variant="h5" fontWeight={"bold"} fontSize={"1.3rem"}>
+          Create An Account
+        </Typography>
         <form onSubmit={handleSubmit} className="Login-Form">
           <strong>User Name </strong>
 

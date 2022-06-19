@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Typography } from "@mui/material";
 import {
   setUserPermissions,
   setInitPermissionsList,
@@ -23,7 +24,7 @@ function EditUser() {
     userName: userLogin,
     editPermissions,
     clickAll,
-  } = useSelector((state) => state);
+  } = useSelector((state: any) => state);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
@@ -35,8 +36,8 @@ function EditUser() {
   const [titleUserName, setTitleUserName] = useState();
   const [sessionTimeOut, setSessionTimeOut] = useState("");
   const [createDate, setCreateDate] = useState();
-  const [perSubsRepeater, setPerSubsRepeater] = useState();
-  const [perMoviesRepeater, setPerMoviesRepeater] = useState();
+  const [perSubsRepeater, setPerSubsRepeater] = useState<any>();
+  const [perMoviesRepeater, setPerMoviesRepeater] = useState<any>();
 
   useEffect(() => {
     async function getData() {
@@ -122,7 +123,7 @@ function EditUser() {
     getData();
   }, [userId, dispatch]);
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     const { name, value } = e.target;
     switch (name) {
       case "firstName":
@@ -146,7 +147,7 @@ function EditUser() {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     // Check input data
@@ -181,8 +182,8 @@ function EditUser() {
 
     // Permissions
     const permissions = editPermissions
-      .filter((permission) => permission.checked)
-      .map((permission) => permission.permission);
+      .filter((permission: any) => permission.checked)
+      .map((permission: any) => permission.permission);
 
     await updateUserPermissions(userId, { permissions });
     if (isAdmin()) {
@@ -205,12 +206,18 @@ function EditUser() {
 
   return (
     <div>
-      <h3>
+      <Typography
+        variant="h5"
+        fontWeight={"bold"}
+        fontSize={"1.1rem"}
+        mt="15px"
+        mb="15px"
+      >
         Edit User :{" "}
         <span style={{ color: "blue" }}>
           {titleFirstName} {titleLastName}
         </span>
-      </h3>
+      </Typography>
       <form
         onSubmit={handleSubmit}
         className="User-Form"

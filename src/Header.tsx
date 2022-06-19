@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { setValidLogin } from "./redux/actions";
+import {Typography} from "@mui/material"
 import "./style.css";
 
 type HeaderProps = {
@@ -38,7 +39,8 @@ class Header extends Component<HeaderProps> {
 
     return (
       <div className="Header">
-        <h1>Movies - Subscriptions Web Site</h1>
+        {/* <h1>Movies - Subscriptions Web Site</h1> */}
+        <Typography variant="h4" mt={"9px"} mb={"29px"}>Movies - Subscriptions Web Site</Typography>
         {user}
       </div>
     );

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Typography } from "@mui/material";
 import { setClickAll } from "../redux/actions";
 import { addMember } from "../utils/members";
 import "../style.css";
@@ -8,12 +9,12 @@ import "../style.css";
 function AddMember() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { clickAll } = useSelector((state) => state);
+  const { clickAll } = useSelector((state: any) => state);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [city, setCity] = useState("");
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     const { name, value } = e.target;
     switch (name) {
       case "name":
@@ -31,7 +32,7 @@ function AddMember() {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     // Check input data
@@ -62,7 +63,15 @@ function AddMember() {
 
   return (
     <div>
-      <h3>Add New Member</h3>
+      <Typography
+        variant="h5"
+        fontWeight={"bold"}
+        fontSize={"1.1rem"}
+        mt="15px"
+        mb="15px"
+      >
+        Add New Member
+      </Typography>
       <form onSubmit={handleSubmit} className="Member-Form">
         Name :
         <input type="text" name="name" value={name} onChange={handleChange} />

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { Typography } from "@mui/material";
 import { getUserByName, getUserPermissions } from "./utils/users";
 import {
   setValidLogin,
@@ -15,7 +16,7 @@ function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const changeData = (e) => {
+  const changeData = (e: any) => {
     const { name, value } = e.target;
     switch (name) {
       case "username":
@@ -29,7 +30,7 @@ function Login() {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     if (!(username && password)) {
@@ -69,7 +70,9 @@ function Login() {
       }}
     >
       <div style={{ marginTop: "15vh" }}>
-        <h2 style={{ margin: "0" }}>Log in</h2>
+        <Typography variant="h5" fontWeight={"bold"} fontSize={"1.3rem"}>
+          Log in
+        </Typography>
         <form onSubmit={handleSubmit} className="Login-Form">
           <strong>User Name </strong>
           <input
@@ -91,9 +94,9 @@ function Login() {
             </button>
           </div>
         </form>
-        <h3>
+        <Typography variant="h5" fontWeight={"bold"} fontSize={"1.1rem"}>
           New User ? : <Link to="/createAccount">Create Account</Link>
-        </h3>
+        </Typography>
       </div>
     </div>
   );

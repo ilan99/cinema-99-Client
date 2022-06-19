@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Typography } from "@mui/material";
 import {
   setInitPermissionsList,
   setEditPermissionsList,
@@ -13,15 +14,15 @@ import "../style.css";
 function AddUser() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { editPermissions, clickAll } = useSelector((state) => state);
+  const { editPermissions, clickAll } = useSelector((state: any) => state);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [userName, setUserName] = useState("");
 
   const [sessionTimeOut, setSessionTimeOut] = useState("");
-  const [createDate, setCreateDate] = useState();
-  const [perSubsRepeater, setPerSubsRepeater] = useState();
-  const [perMoviesRepeater, setPerMoviesRepeater] = useState();
+  const [createDate, setCreateDate] = useState("");
+  const [perSubsRepeater, setPerSubsRepeater] = useState<any>();
+  const [perMoviesRepeater, setPerMoviesRepeater] = useState<any>();
 
   useEffect(() => {
     const date = new Date();
@@ -82,7 +83,7 @@ function AddUser() {
     setPerMoviesRepeater(repeaterMovies);
   }, [dispatch]);
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     const { name, value } = e.target;
     switch (name) {
       case "firstName":
@@ -103,7 +104,7 @@ function AddUser() {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     // Check input data
@@ -141,8 +142,8 @@ function AddUser() {
 
     // Permissions
     const permissions = editPermissions
-      .filter((permission) => permission.checked)
-      .map((permission) => permission.permission);
+      .filter((permission: any) => permission.checked)
+      .map((permission: any) => permission.permission);
 
     const userPermissions = {
       userId: userId,
@@ -162,7 +163,15 @@ function AddUser() {
 
   return (
     <div>
-      <h3>Add New User</h3>
+      <Typography
+        variant="h5"
+        fontWeight={"bold"}
+        fontSize={"1.1rem"}
+        mt="15px"
+        mb="15px"
+      >
+        Add New User
+      </Typography>
       <form
         onSubmit={handleSubmit}
         className="User-Form"
