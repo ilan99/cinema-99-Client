@@ -1,5 +1,6 @@
 import { Component } from "react";
-import { Typography } from "@mui/material";
+import { Typography, IconButton } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import "./style.css";
 
 type AboutProps = {
@@ -15,9 +16,13 @@ class About extends Component<AboutProps> {
     return (
       <div style={{ width: "745px" }}>
         <div style={{ display: "flex", justifyContent: "right" }}>
-          <button className="Close-Button" onClick={this.handleClick}>
-            X
-          </button>
+          <IconButton
+            sx={{ p: 0 }}
+            onClick={this.handleClick}
+            disableRipple={true}
+          >
+            <CloseIcon />
+          </IconButton>
         </div>
         <Typography
           variant="h4"

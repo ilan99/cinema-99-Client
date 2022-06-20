@@ -11,6 +11,10 @@ const setCrossFind = (value) => {
   return { type: "SET_CROSS_FIND", value };
 };
 
+const setHome = (value) => {
+  return { type: "SET_HOME", value };
+};
+
 // Users actions
 const setValidLogin = (value) => {
   return { type: "SET_VALID_LOGIN", value };
@@ -66,6 +70,7 @@ export {
   setDisplayBar,
   setClickAll,
   setCrossFind,
+  setHome,
   setValidLogin,
   setUserData,
   setUserPermissions,

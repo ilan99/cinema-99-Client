@@ -1,5 +1,6 @@
 const initState = {
   validLogin: false,
+  home: true,
   userId: "",
   userName: "",
   firstName: "",
@@ -76,6 +77,9 @@ const rootReducer = (state = initState, action: any) => {
 
     case "SET_CROSS_FIND":
       return { ...state, crossFind: action.value };
+
+    case "SET_HOME":
+      return { ...state, home: action.value };
 
     // Users
     case "SET_VALID_LOGIN":

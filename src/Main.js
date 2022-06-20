@@ -9,7 +9,9 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 
 function Main() {
-  const { validLogin, userName, clickAll } = useSelector((state) => state);
+  const { validLogin, userName, clickAll, home } = useSelector(
+    (state) => state
+  );
   const dispatch = useDispatch();
   const labelMovies = useRef(null);
   const navigate = useNavigate();
@@ -22,7 +24,7 @@ function Main() {
 
   useEffect(() => {
     labelMovies.current.click();
-  }, []);
+  }, [home]);
 
   const handleClick = (e) => {
     dispatch(setClickAll(!clickAll));
