@@ -2,7 +2,7 @@ import axios from "axios";
 
 // const urlSubscriptions = "http://localhost:8000/subscriptions";
 
-const urlSubscriptions = "https://cinema-999.herokuapp.com/subscriptions";
+const urlSubscriptions = "https://cinema-wxew.onrender.com/subscriptions";
 
 const getSubscriptionById = (subscriptionId) => {
   return axios.get(`${urlSubscriptions}/${subscriptionId}`);

@@ -2,7 +2,7 @@ import axios from "axios";
 
 // const urlMovies = "http://localhost:8000/movies";
 
-const urlMovies = "https://cinema-999.herokuapp.com/movies";
+const urlMovies = "https://cinema-wxew.onrender.com/movies";
 
 const getMovieById = (movieId) => {
   return axios.get(`${urlMovies}/${movieId}`);

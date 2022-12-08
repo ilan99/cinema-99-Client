@@ -3,8 +3,8 @@ import axios from "axios";
 // const urlUsers = "http://localhost:8000/users";
 // const urlPermissions = "http://localhost:8000/permissions";
 
-const urlUsers = "https://cinema-999.herokuapp.com/users";
-const urlPermissions = "https://cinema-999.herokuapp.com/permissions";
+const urlUsers = "https://cinema-wxew.onrender.com/users";
+const urlPermissions = "https://cinema-wxew.onrender.com/permissions";
 
 // Users
 const getAllUsers = () => {
