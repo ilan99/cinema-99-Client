@@ -5,7 +5,7 @@ import axios from "axios";
 const urlMovies = "https://cinema-wxew.onrender.com/movies";
 
 const initialRequest = () => {
-  return axios.get(`${urlMovies}/start`);
+  axios.get(`${urlMovies}/start`);
 };
 
 const getMovieById = (movieId) => {
