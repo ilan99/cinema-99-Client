@@ -4,6 +4,10 @@ import axios from "axios";
 
 const urlMovies = "https://cinema-wxew.onrender.com/movies";
 
+const initialRequest = () => {
+  return axios.get(`${urlMovies}/start`);
+};
+
 const getMovieById = (movieId) => {
   return axios.get(`${urlMovies}/${movieId}`);
 };
@@ -24,4 +28,11 @@ const deleteMovie = (movieId) => {
   return axios.delete(`${urlMovies}/${movieId}`);
 };
 
-export { getMovieById, getAllMovies, updateMovie, addMovie, deleteMovie };
+export {
+  initialRequest,
+  getMovieById,
+  getAllMovies,
+  updateMovie,
+  addMovie,
+  deleteMovie,
+};
