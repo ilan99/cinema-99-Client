@@ -2,7 +2,7 @@ import axios from "axios";
 
 // const urlMovies = "http://localhost:8000/movies";
 
-const urlMovies = "https://cinema-wxew.onrender.com/movies";
+const urlMovies = "https://cinema-99.up.railway.app/movies";
 
 const initialRequest = () => {
   axios.get(`${urlMovies}/start`);
