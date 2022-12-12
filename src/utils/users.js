@@ -3,8 +3,8 @@ import axios from "axios";
 // const urlUsers = "http://localhost:8000/users";
 // const urlPermissions = "http://localhost:8000/permissions";
 
-const urlUsers = "https://cinema-99.up.railway.app/users";
-const urlPermissions = "https://cinema-99.up.railway.app/permissions";
+const urlUsers = "https://cinema-999.cyclic.app/users";
+const urlPermissions = "https://cinema-999.cyclic.app/permissions";
 
 // Users
 const getAllUsers = () => {

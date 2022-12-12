@@ -2,7 +2,7 @@ import axios from "axios";
 
 // const urlSubscriptions = "http://localhost:8000/subscriptions";
 
-const urlSubscriptions = "https://cinema-99.up.railway.app/subscriptions";
+const urlSubscriptions = "https://cinema-999.cyclic.app/subscriptions";
 
 const getSubscriptionById = (subscriptionId) => {
   return axios.get(`${urlSubscriptions}/${subscriptionId}`);
